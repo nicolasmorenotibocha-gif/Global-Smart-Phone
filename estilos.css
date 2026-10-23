@@ -1,0 +1,78 @@
+:root{
+  --bg:#0a0a0c; --bg2:#111114; --card:#17171b; --gold:#cba15a; --gold-soft:#e8cfa0;
+  --text:#f3f1ec; --muted:#9b968c; --line:#ffffff14;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#faf8f4; --bg2:#f2efe8; --card:#ffffff; --text:#1a1a1a; --muted:#6b6558; --line:#00000012;
+  }
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,.logo{font-family:'Playfair Display',serif;}
+
+header{position:sticky;top:0;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(14px);z-index:20;border-bottom:1px solid var(--line);}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;padding:18px 24px;}
+.logo{font-weight:700;font-size:22px;letter-spacing:.5px;}
+.logo span{color:var(--gold);font-style:italic;}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+nav a{color:var(--text);text-decoration:none;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;transition:opacity .2s, color .2s;}
+nav a:hover{opacity:1;color:var(--gold);}
+#cartBtn{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:9px 18px;border-radius:2px;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:.25s;}
+#cartBtn:hover{background:var(--gold);color:#0a0a0c;}
+
+.hero{max-width:1100px;margin:0 auto;padding:70px 24px 20px;text-align:center;}
+.hero p.kicker{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:14px;}
+.hero h1{font-size:44px;margin:0 0 14px;line-height:1.15;}
+.hero p.desc{color:var(--muted);max-width:520px;margin:0 auto;font-size:15px;}
+.divider{width:60px;height:1px;background:var(--gold);margin:26px auto 0;}
+
+section{max-width:1100px;margin:0 auto;padding:70px 24px;}
+section > .head{text-align:center;margin-bottom:46px;}
+section > .head p.kicker{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:10px;}
+section > .head h2{font-size:32px;margin:0 0 10px;}
+section > .head .sub{color:var(--muted);font-size:14px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;}
+.card{background:var(--card);border-radius:6px;padding:34px 26px;border:1px solid var(--line);text-align:center;transition:transform .3s, border-color .3s, box-shadow .3s;}
+.card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 18px 40px -20px rgba(203,161,90,.35);}
+.icon{font-size:38px;margin-bottom:14px;}
+.card h3{margin:0 0 6px;font-size:21px;letter-spacing:.3px;}
+.price{color:var(--gold);font-weight:600;margin-bottom:20px;letter-spacing:.5px;}
+.card button{width:100%;padding:12px;border-radius:2px;border:1px solid var(--gold);background:transparent;color:var(--gold);cursor:pointer;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;transition:.25s;}
+.card button:hover{background:var(--gold);color:#0a0a0c;}
+
+#historia p{color:var(--muted);font-size:15.5px;line-height:1.9;max-width:720px;margin:0 auto;text-align:center;}
+
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.contact-card{background:var(--card);border-radius:6px;padding:24px;border:1px solid var(--line);text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:8px;transition:transform .3s, border-color .3s;}
+.contact-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+.contact-card .icon{font-size:24px;margin:0;}
+.contact-card .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:1.5px;}
+.contact-card .value{font-weight:500;font-size:15px;}
+iframe{border:0;width:100%;height:240px;border-radius:6px;margin-top:26px;filter:grayscale(.15);}
+
+footer{text-align:center;color:var(--muted);font-size:12px;padding:34px;padding-bottom:calc(34px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);letter-spacing:.5px;}
+
+#overlay{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;justify-content:flex-end;z-index:50;}
+#cartPanel{background:var(--bg2);width:100%;max-width:360px;height:100%;padding:28px;padding-top:calc(28px + env(safe-area-inset-top,0px));overflow-y:auto;border-left:1px solid var(--line);}
+#cartPanel h2{margin:0 0 22px;font-size:24px;}
+.item{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.item button{background:none;border:none;color:#c0685a;cursor:pointer;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
+#total{margin-top:20px;padding-top:16px;border-top:1px solid var(--gold);font-weight:600;display:flex;justify-content:space-between;font-family:'Playfair Display',serif;font-size:19px;}
+#closeCart{float:right;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;}
+#closeCart:hover{color:var(--gold);}
+
+@media (max-width:640px){
+  nav ul{display:none;}
+  .hero h1{font-size:32px;}
+}
+
+Recuerda que también necesitas la línea de las fuentes en el <head>, antes del <style>:
+
+html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:w
